@@ -1,4 +1,6 @@
 #!/bin/bash
 
-docker exec -it h1 /bin/bash
+CONTAINER_NAME=hadoop
+
+docker exec -it $CONTAINER_NAME /bin/bash
 
