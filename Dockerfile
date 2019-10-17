@@ -34,17 +34,17 @@ RUN sed -i "/^export JAVA_HOME/ s:.*:export JAVA_HOME=$JAVA_HOME:" $HADOOP_CONF_
 RUN sed -i "/^export HADOOP_CONF_DIR/ s:.*:export HADOOP_CONF_DIR=$HADOOP_CONF_DIR:" $HADOOP_CONF_DIR/hadoop-env.sh
 
 # pseudo distributed
-ADD core-site.xml $HADOOP_CONF_DIR/core-site.xml
-ADD hdfs-site.xml $HADOOP_CONF_DIR/hdfs-site.xml
-ADD mapred-site.xml $HADOOP_CONF_DIR/mapred-site.xml
-ADD yarn-site.xml $HADOOP_CONF_DIR/yarn-site.xml
-ADD hadoop-start.sh /hadoop-start.sh
-ADD hadoop-test.sh /hadoop-test.sh
+ADD conf/core-site.xml $HADOOP_CONF_DIR/core-site.xml
+ADD conf/hdfs-site.xml $HADOOP_CONF_DIR/hdfs-site.xml
+ADD conf/mapred-site.xml $HADOOP_CONF_DIR/mapred-site.xml
+ADD conf/yarn-site.xml $HADOOP_CONF_DIR/yarn-site.xml
+ADD script/start-hadoop.sh /start-hadoop.sh
+ADD script/test-hadoop.sh /test-hadoop.sh
 
 RUN $HADOOP_PREFIX/bin/hdfs namenode -format
 
 # sshd
-ADD ssh_config /root/.ssh/config
+ADD conf/ssh_config /root/.ssh/config
 RUN chmod 600 /root/.ssh/config
 RUN chown root:root /root/.ssh/config
 
