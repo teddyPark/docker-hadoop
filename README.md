@@ -29,6 +29,6 @@ run attach.sh
 run destroy.sh
 
 # IMPORTANT: After attach you might to want to to:
-./hadoop-start.sh (HDFS & Yarn)<br/>
-./hadoop-test.sh (Optional)<br/>
+./start-hadoop.sh (HDFS & Yarn)<br/>
+./test-hadoop.sh (Optional)<br/>
 
